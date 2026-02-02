@@ -1,221 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCSS 2 Robotics | Engineering Excellence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --orange: #ff6b00;
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
-            --light: #f4f4f4;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCSS 2 Robotics | Engineering Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --orange: #ff6b00;
+    --dark: #0a0a0a;
+    --gray: #1a1a1a;
+    --light: #f4f4f4;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
+/* --- GLOBAL --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+h1, h2, h3, .nav-logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-        h1, h2, h3, .nav-logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+/* --- NAVIGATION --- */
+nav {
+    position: fixed; width: 100%; padding: 20px 8%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 2px solid var(--orange);
+    z-index: 1000;
+}
+.nav-links a {
+    color: white; text-decoration: none; margin-left: 20px;
+    font-weight: 600; font-size: 0.8rem; transition: 0.3s;
+}
+.nav-links a:hover { color: var(--orange); }
 
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed; width: 100%; padding: 20px 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 2px solid var(--orange);
-            z-index: 1000;
-        }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.8rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--orange); }
+/* --- HERO --- */
+.hero {
+    height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; background: radial-gradient(circle, #222 0%, #0a0a0a 100%);
+}
+.hero h1 { font-size: clamp(2rem, 8vw, 5rem); color: var(--orange); margin-bottom: 10px; }
+.hero p { color: #888; margin-bottom: 30px; letter-spacing: 3px; }
+.hero .btn { background: var(--orange); color: black; padding: 12px 25px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.hero .btn:hover { background: white; box-shadow: 0 0 20px var(--orange); }
 
-        /* --- HERO --- */
-        .hero {
-            height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; background: radial-gradient(circle, #222 0%, #0a0a0a 100%);
-        }
-        .hero h1 { font-size: clamp(2rem, 8vw, 5rem); color: var(--orange); margin-bottom: 10px; }
-        .hero p { color: #888; margin-bottom: 30px; letter-spacing: 3px; }
+/* --- SECTION --- */
+section { padding: 80px 10%; }
+.title-group { margin-bottom: 40px; border-left: 5px solid var(--orange); padding-left: 20px; }
 
-        /* --- SECTION STYLING --- */
-        section { padding: 80px 10%; }
-        .title-group { margin-bottom: 40px; border-left: 5px solid var(--orange); padding-left: 20px; }
+/* --- GALLERY --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.gallery-item {
+    position: relative; aspect-ratio: 16/9;
+    background: var(--gray); overflow: hidden; border: 1px solid #333; cursor: pointer;
+}
+.gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: grayscale(50%);
+}
+.gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+.gallery-caption {
+    position: absolute; bottom: 0; left: 0; width: 100%;
+    background: rgba(255, 107, 0, 0.9); color: black;
+    padding: 10px; font-size: 0.7rem; font-weight: bold;
+    transform: translateY(100%); transition: 0.3s;
+}
+.gallery-item:hover .gallery-caption { transform: translateY(0); }
 
-        /* --- PHOTO GALLERY (NEW) --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 16/9;
-            background: var(--gray);
-            overflow: hidden;
-            border: 1px solid #333;
-            cursor: pointer;
-        }
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: grayscale(50%);
-        }
-        .gallery-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
-        .gallery-caption {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            background: rgba(255, 107, 0, 0.9); color: black;
-            padding: 10px; font-size: 0.7rem; font-weight: bold;
-            transform: translateY(100%); transition: 0.3s;
-        }
-        .gallery-item:hover .gallery-caption { transform: translateY(0); }
+/* --- DONATION TABLE --- */
+.donate-table {
+    width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--gray);
+}
+.donate-table th, .donate-table td {
+    padding: 15px; text-align: left; border-bottom: 1px solid #333;
+}
+.donate-table th { color: var(--orange); text-transform: uppercase; font-size: 0.8rem; }
 
-        /* --- DONATION TABLE (NEW) --- */
-        .donate-table {
-            width: 100%; border-collapse: collapse; margin-top: 20px;
-            background: var(--gray);
-        }
-        .donate-table th, .donate-table td {
-            padding: 15px; text-align: left; border-bottom: 1px solid #333;
-        }
-        .donate-table th { color: var(--orange); text-transform: uppercase; font-size: 0.8rem; }
+/* --- ROSTER --- */
+.roster-container { column-count: 2; background: #111; padding: 30px; border-radius: 4px; }
+.senior-tag { color: var(--orange); font-weight: bold; }
 
-        /* --- ROSTER --- */
-        .roster-container {
-            column-count: 2; background: #111; padding: 30px; border-radius: 4px;
-        }
-        .senior-tag { color: var(--orange); font-weight: bold; }
+/* --- BUTTON --- */
+.btn { background: var(--orange); color: black; padding: 12px 25px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
+.btn:hover { background: white; box-shadow: 0 0 20px var(--orange); }
 
-        .btn {
-            background: var(--orange); color: black; padding: 12px 25px;
-            text-decoration: none; font-weight: bold; display: inline-block;
-            margin-top: 20px; transition: 0.3s;
-        }
-        .btn:hover { background: white; box-shadow: 0 0 20px var(--orange); }
+/* --- CONTACT FORM --- */
+.contact-form {
+    display: flex; flex-direction: column; gap: 15px; max-width: 500px;
+}
+.contact-form input, .contact-form textarea {
+    padding: 12px; border: none; border-radius: 4px; background: #222; color: var(--light);
+    resize: none;
+}
+.contact-form button {
+    background: var(--orange); color: black; padding: 12px; border: none; font-weight: bold; cursor: pointer;
+}
+.contact-form button:hover { background: white; box-shadow: 0 0 20px var(--orange); color: black; }
 
-        footer { text-align: center; padding: 50px; color: #444; border-top: 1px solid #222; }
-    </style>
+/* --- FOOTER --- */
+footer { text-align: center; padding: 50px; color: #444; border-top: 1px solid #222; }
+</style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">PCSS 2 UNIT</div>
-        <div class="nav-links">
-            <a href="#mission">Mission</a>
-            <a href="#projects">Projects</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#roster">Team</a>
-            <a href="#donate">Donate</a>
-        </div>
-    </nav>
-
-    <div class="hero">
-        <h1>PCSS 2 ROBOTICS</h1>
-        <p>ADVANCED ENGINEERING // ROBUST DESIGN</p>
-        <a href="#gallery" class="btn">VIEW MISSION LOGS</a>
+<nav>
+    <div class="nav-logo">PCSS 2 UNIT</div>
+    <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#future">Future</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#donate">Donate</a>
     </div>
+</nav>
 
-    <section id="mission">
-        <div class="title-group">
-            <h2>Our Mission</h2>
-        </div>
-        <p style="max-width: 800px; font-size: 1.1rem;">
-            To empower students at PCSS 2 through high-level competitive robotics. We bridge the gap between theoretical science and physical implementation, mentored by <strong>Mr. Alla</strong> and <strong>Mr. Kilic</strong>.
-        </p>
-    </section>
+<div class="hero">
+    <h1>PCSS 2 ROBOTICS</h1>
+    <p>ADVANCED ENGINEERING // ROBUST DESIGN</p>
+    <a href="#gallery" class="btn">VIEW MISSION LOGS</a>
+</div>
 
-    <section id="gallery" style="background: #0f0f0f;">
-        <div class="title-group">
-            <h2>Project Gallery</h2>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/222/ff6b00?text=NASA+JPL+Project" alt="NASA JPL">
-                <div class="gallery-caption">NASA JPL INVENTION CHALLENGE - THE UNUSUAL MACHINE</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/222/ff6b00?text=MIT+CubeSat" alt="MIT CubeSat">
-                <div class="gallery-caption">MIT CUBESAT - WILDFIRE DETECTION PAYLOAD</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400/222/ff6b00?text=Genius+Olympiad" alt="Genius Olympiad">
-                <div class="gallery-caption">GENIUS OLYMPIAD 2026 - R&D PHASE</div>
-            </div>
-        </div>
-    </section>
+<section id="mission">
+    <div class="title-group"><h2>Our Mission</h2></div>
+    <p style="max-width: 800px; font-size: 1.1rem;">
+        To empower students at PCSS 2 through high-level competitive robotics. We bridge the gap between theoretical science and physical implementation, mentored by <strong>Mr. Alla</strong> and <strong>Mr. Kilic</strong>.
+    </p>
+</section>
 
-    <section id="roster">
-        <div class="title-group">
-            <h2>The Registry</h2>
-        </div>
-        <div class="roster-container">
-            <p class="senior-tag">ADVISORS: Mr. Alla & Mr. Kilic</p>
-            <br>
-            <p class="senior-tag">Dinesh Babu (Senior)</p>
-            <p class="senior-tag">Joseph Ha (Senior)</p>
-            <p class="senior-tag">Kenzo Chinchilla (Senior)</p>
-            <p>Reem Ahrabar</p>
-            <p>Ayoal Ayoal</p>
-            <p>Anthony Corpuz</p>
-            <p>Raphael De Souza</p>
-            <p>Reem Ferahi</p>
-            <p>Yousef Ghonime</p>
-            <p>Logan Khuon</p>
-            <p>Sarea Lamichhane</p>
-            <p>Kevin Le</p>
-            <p>Mohammed Mendouk</p>
-            <p>Jayden Nguyen</p>
-            <p>Prevail Owie</p>
-            <p>Henry Pepper</p>
-            <p>Joshua Pepper</p>
-            <p>Jasper Percival Cook</p>
-            <p>Jeffrey Pop</p>
-            <p>Stephane Raymond</p>
-            <p>Kevin Romero</p>
-            <p>Parth Shetty</p>
-            <p>Ethan Sydavong</p>
-            <p>Nabil Syed</p>
-            <p>Raaina Syed</p>
-        </div>
-    </section>
+<section id="projects" style="background: #0f0f0f;">
+    <div class="title-group"><h2>Our Projects</h2></div>
+    <ul style="list-style: none; padding-left: 0; font-size: 1.1rem;">
+        <li>• NASA JPL Invention Challenge – The Unusual Machine</li>
+        <li>• MIT CubeSat Wildfire Detection Payload</li>
+        <li>• Genius Olympiad 2026 – R&D Phase</li>
+        <li>• School Automation and AI Integration Projects</li>
+    </ul>
+</section>
 
-    <section id="donate">
-        <div class="title-group">
-            <h2>Support the Mission</h2>
+<section id="gallery">
+    <div class="title-group"><h2>Project Gallery</h2></div>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/600x400/222/ff6b00?text=NASA+JPL+Project" alt="NASA JPL">
+            <div class="gallery-caption">NASA JPL INVENTION CHALLENGE - THE UNUSUAL MACHINE</div>
         </div>
-        <table class="donate-table">
-            <tr>
-                <th>Tier</th>
-                <th>Benefit</th>
-                <th>Goal</th>
-            </tr>
-            <tr>
-                <td>Bronze</td>
-                <td>Team Sticker & Website Credit</td>
-                <td>$50 - $200</td>
-            </tr>
-            <tr>
-                <td>Silver</td>
-                <td>Logo on Robot Chassis</td>
-                <td>$200 - $500</td>
-            </tr>
-            <tr>
-                <td>Gold</td>
-                <td>Logo on Team Shirts & Travel Sponsor</td>
-                <td>$500+</td>
-            </tr>
-        </table>
-        <a href="#" class="btn">CLICK TO DONATE</a>
-    </section>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/600x400/222/ff6b00?text=MIT+CubeSat" alt="MIT CubeSat">
+            <div class="gallery-caption">MIT CUBESAT - WILDFIRE DETECTION PAYLOAD</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/600x400/222/ff6b00?text=Genius+Olympiad" alt="Genius Olympiad">
+            <div class="gallery-caption">GENIUS OLYMPIAD 2026 - R&D PHASE</div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        &copy; 2026 PCSS 2 ROBOTICS | DESIGNED FOR GENIUS OLYMPIAD
-    </footer>
+<section id="future" style="background: #111;">
+    <div class="title-group"><h2>Future Plans</h2></div>
+    <p style="max-width: 800px; font-size: 1.1rem;">
+        Our vision is to develop fully autonomous robots capable of multi-environment exploration, integrate AI-driven decision systems, and participate in international competitions. We aim to expand our mentorship program to local middle schools to inspire the next generation of engineers.
+    </p>
+</section>
+
+<section id="about">
+    <div class="title-group"><h2>About Us</h2></div>
+    <p style="max-width: 800px; font-size: 1.1rem;">
+        PCSS 2 Robotics is a student-driven program founded to foster creativity, critical thinking, and technical expertise in robotics. With guidance from experienced mentors, our team explores real-world engineering challenges and collaborates with universities and industry professionals.
+    </p>
+</section>
+
+<section id="contact" style="background: #0f0f0f;">
+    <div class="title-group"><h2>Contact Us</h2></div>
+    <form class="contact-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<section id="donate">
+    <div class="title-group"><h2>Support the Mission</h2></div>
+    <table class="donate-table">
+        <tr>
+            <th>Tier</th>
+            <th>Benefit</th>
+            <th>Goal</th>
+        </tr>
+        <tr>
+            <td>Bronze</td>
+            <td>Team Sticker & Website Credit</td>
+            <td>$50 - $200</td>
+        </tr>
+        <tr>
+            <td>Silver</td>
+            <td>Logo on Robot Chassis</td>
+            <td>$200 - $500</td>
+        </tr>
+        <tr>
+            <td>Gold</td>
+            <td>Logo on Team Shirts & Travel Sponsor</td>
+            <td>$500+</td>
+        </tr>
+    </table>
+    <a href="#" class="btn">CLICK TO DONATE</a>
+</section>
+
+<footer>
+    &copy; 2026 PCSS 2 ROBOTICS | DESIGNED FOR GENIUS OLYMPIAD
+</footer>
 
 </body>
 </html>
