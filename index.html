@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCSS 2 Robotics | Genius 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --safety-orange: #ff6b00;
+            --deep-black: #0f0f0f;
+            --steel-gray: #2a2a2a;
+            --accent-white: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--accent-white);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* --- INDUSTRIAL HEADER --- */
+        header {
+            border-bottom: 4px solid var(--safety-orange);
+            padding: 2rem 10%;
+            background: linear-gradient(to bottom, #1a1a1a, #0f0f0f);
+        }
+
+        .logo { font-family: 'Orbitron'; font-size: 2.5rem; color: var(--safety-orange); }
+
+        /* --- PROJECT CARDS --- */
+        .container { padding: 4rem 10%; }
+        
+        .project-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--steel-gray);
+            border: 1px solid #444;
+            padding: 1.5rem;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover { border-color: var(--safety-orange); transform: scale(1.02); }
+
+        .card::before {
+            content: "PROJECT_FILE";
+            position: absolute;
+            top: 5px; right: 10px;
+            font-size: 0.6rem; color: var(--safety-orange);
+            opacity: 0.5;
+        }
+
+        .badge {
+            background: var(--safety-orange);
+            color: black;
+            padding: 2px 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* --- TEAM ROSTER LIST --- */
+        .roster-box {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            column-count: 2;
+        }
+
+        .mentor { color: var(--safety-orange); font-weight: bold; margin-bottom: 10px; display: block;}
+
+        /* --- ANIMATIONS --- */
+        .fade-in { animation: fadeIn 1.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+<header class="fade-in">
+    <div class="logo">PCSS 2 // ROBOTICS</div>
+    <p>Advisors: <span style="color:white">Mr. Alla & Mr. Kilic</span></p>
+</header>
+
+<div class="container fade-in">
+    <h2>[ACTIVE_MISSION: GENIUS OLYMPIAD 2026]</h2>
+    <div class="card" style="border-left: 10px solid var(--safety-orange);">
+        <h3>Building for Sustainability</h3>
+        <p>Currently in the R&D phase for the 2026 GENIUS competition. Our focus: Environmental cleanup automation using advanced sensor fusion.</p>
+        <div style="width: 100%; background: #444; height: 10px; margin-top: 10px;">
+            <div style="width: 25%; background: var(--safety-orange); height: 100%;"></div>
+        </div>
+    </div>
+
+    <h2 style="margin-top: 4rem;">[COMPLETED_DATA_LOGS]</h2>
+    <div class="project-section">
+        <div class="card">
+            <span class="badge">NASA JPL</span>
+            <h3>Invention Project</h3>
+            <p>2nd Place Winners (2024 & 2025). Awarded "Most Unusual Design" by NASA engineers for our high-speed water transport system.</p>
+        </div>
+        <div class="card">
+            <span class="badge">MIT</span>
+            <h3>CubeSat Challenge</h3>
+            <p>Designed and programmed a satellite payload for orbital wildfire detection using Python-based computer vision.</p>
+        </div>
+    </div>
+
+    <h2 style="margin-top: 4rem;">[TEAM_REGISTRY]</h2>
+    <div class="roster-box">
+        <span class="mentor">CS Lead: Mr. Alla</span>
+        <span class="mentor">Science Lead: Mr. Kilic</span>
+        <hr style="border: 0.5px solid #444; margin: 10px 0;">
+        <ul style="list-style: square; color: #bbb; font-size: 0.9rem;">
+            <li><b>Dinesh Babu (Senior)</b></li>
+            <li><b>Joseph Ha (Senior)</b></li>
+            <li><b>Kenzo Chinchilla (Senior)</b></li>
+            <li>Reem Ahrabar</li>
+            <li>Ayoal Ayoal</li>
+            <li>Anthony Corpuz</li>
+            <li>Raphael De Souza</li>
+            <li>Reem Ferahi</li>
+            <li>Yousef Ghonime</li>
+            <li>Logan Khuon</li>
+            <li>Sarea Lamichhane</li>
+            <li>Kevin Le</li>
+            <li>Mohammed Mendouk</li>
+            <li>Jayden Nguyen</li>
+            <li>Prevail Owie</li>
+            <li>Henry Pepper</li>
+            <li>Joshua Pepper</li>
+            <li>Jasper Percival Cook</li>
+            <li>Jeffrey Pop</li>
+            <li>Stephane Raymond</li>
+            <li>Kevin Romero</li>
+            <li>Parth Shetty</li>
+            <li>Ethan Sydavong</li>
+            <li>Nabil Syed</li>
+            <li>Raaina Syed</li>
+        </ul>
+    </div>
+</div>
+
+<footer style="text-align: center; padding: 2rem; color: #555;">
+    &copy; 2026 PCSS 2 Robotics Unit. All Rights Reserved.
+</footer>
+
+</body>
+</html>
